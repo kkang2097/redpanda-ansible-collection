@@ -5,6 +5,7 @@
       - redpanda-console{{ redpanda_version_suffix }}
     state: "{{ redpanda_install_status }}"
     update_cache: true
+  become: true
   register: console_install_result
 
 # Get installed version if 'latest' was requested

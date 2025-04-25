@@ -3,3 +3,4 @@
   ansible.builtin.systemd:
     name: redpanda-console
     state: restarted
+  become: true
