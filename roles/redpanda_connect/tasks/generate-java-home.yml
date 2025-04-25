@@ -6,3 +6,4 @@
     group: "{{ redpanda_group }}"
     mode: '0755'
     force: true
+  become: true
