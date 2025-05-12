@@ -31,5 +31,5 @@
     dest: "{{ redpanda_connect_config_dir }}/connect-distributed.properties"
     owner: "{{ redpanda_user }}"
     group: "{{ redpanda_group }}"
-    mode: '0644'
+    mode: '0775'
     force: true
