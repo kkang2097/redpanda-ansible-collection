@@ -90,12 +90,13 @@
 # configurations into the file directly
 #
 - name: Generate Node config - first run
+  become: true
   ansible.builtin.template:
     src: redpanda.yml
     dest: /etc/redpanda/redpanda.yaml
     owner: redpanda
     group: redpanda
-    mode: "0644"
+    mode: "0775"
   register: nodeconfig_result
   when: not is_initialized
 
@@ -105,12 +106,13 @@
 # redpanda to startup the first time
 #
 - name: Generate bootstrap
+  become: true
   ansible.builtin.template:
     src: bootstrap.yml
     dest: /etc/redpanda/.bootstrap.yaml
     owner: redpanda
     group: redpanda
-    mode: "0644"
+    mode: "0775"
   when: not is_initialized
 
 # This starts up the tuner process which modifies various redpanda items and
@@ -235,12 +237,13 @@
 # with ansible if restart handling is configured in the role settings.
 #
 - name: Generate Node config - post-bootstrap runs
+  become: true
   ansible.builtin.template:
     src: redpanda.yml
     dest: /etc/redpanda/redpanda.yaml
     owner: redpanda
     group: redpanda
-    mode: "0644"
+    mode: "0775"
   check_mode: true
   register: nodeconfig_result
   when: is_initialized

@@ -92,6 +92,7 @@
     state: directory
     owner: redpanda
     group: redpanda
-    mode: "0755"
+    mode: "0775"
+  become: true
   tags:
     - prep_data_dir

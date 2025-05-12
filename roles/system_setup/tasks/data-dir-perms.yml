@@ -5,6 +5,7 @@
     state: link
     owner: redpanda
     group: redpanda
-    mode: "0755"
+    mode: "0775"
+  become: true
   tags:
     - data_dir_perms

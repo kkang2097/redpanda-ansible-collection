@@ -35,6 +35,7 @@
 
 
 - name: Install redpanda (post 24.2 or development)
+  become: true
   dnf:
     name: "{{item}}"
     state: "{{ redpanda_install_status }}"
